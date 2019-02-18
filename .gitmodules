@@ -1,0 +1,3 @@
+[submodule "sysrepo"]
+	path = sysrepo
+	url = https://github.com/sysrepo/sysrepo.git

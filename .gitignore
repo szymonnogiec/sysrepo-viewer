@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# .idea ignore
+.idea/markdown-navigator/profiles_settings.xml
+.idea/workspace.xml
