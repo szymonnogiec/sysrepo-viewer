@@ -17,13 +17,22 @@ find_package(Qt5Widgets CONFIG REQUIRED)
 INCLUDE_DIRECTORIES(include)
 LINK_DIRECTORIES(src)
 
-set(SOURCE_FILES
+set(HEADER_FILES
         include/MainWindow.h
+        include/SysrepoConnector.h
+        include/Util.h
+        include/SysrepoViewer.h include/FormData.h)
+
+set(SOURCE_FILES
         src/main.cpp
+        src/MainWindow.cpp
         src/SysrepoConnector.cpp
-        src/MainWindow.cpp)
+        src/Util.cpp src/SysrepoViewer.cpp src/FormData.cpp)
 
 add_executable(sysrepo-viewer
+        ${HEADER_FILES}
         ${SOURCE_FILES})
 
-target_link_libraries(sysrepo-viewer Qt5::Widgets)
+target_link_libraries(sysrepo-viewer
+        Qt5::Widgets
+        Sysrepo-cpp)

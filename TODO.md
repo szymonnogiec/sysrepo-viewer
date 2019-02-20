@@ -1,14 +1,15 @@
 # TODO
 ## FRONT
 1. ~~Link qt gui library~~
-2. Setup simple window with input:
-    - xpath string 
+2. ~~Setup simple window with input~~:
+    - ~~xpath string~~
     - datastore type
-    - information from sysrepo
+    - ~~information from sysrepo~~
 
 ## BACK
-1. Add build step for sysrepo client library (and link it)
-2. Use swig generated cpp wrappings
+1. ~~Add build step for sysrepo client library (and link it) - Sysrepo-cpp~~
+2. ~~Use swig generated cpp wrappings~~
+3. Xpath validator
 
 ## OTHER
 1. Link gtest and gmock libs
