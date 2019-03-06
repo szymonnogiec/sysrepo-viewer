@@ -22,5 +22,10 @@ const FormDataPtr &SysrepoViewer::getFormDataPtr() const {
 }
 
 SysrepoViewer::SysrepoViewer() :
-    formDataPtr_(new FormData) {
+    formDataPtr_(new FormData),
+    sysrepodStateMonitor_(std::make_shared<SysrepodStateMonitor>(formDataPtr_)) {
+}
+
+void SysrepoViewer::init() {
+  sysrepodStateMonitor_->run();
 }

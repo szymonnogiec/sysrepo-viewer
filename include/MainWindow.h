@@ -16,6 +16,7 @@ public:
 
 private slots:
   void onXpathChanged(const QString &text);
+  void onSysrepodStateChanged(bool state);
 
 private:
   void setupSignals();

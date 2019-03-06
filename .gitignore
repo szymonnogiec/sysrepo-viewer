@@ -34,3 +34,8 @@
 # .idea ignore
 .idea/markdown-navigator/profiles_settings.xml
 .idea/workspace.xml
+
+# cmake build dir
+cmake-build-debug*
+# some external deps
+deps*

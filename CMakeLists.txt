@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.6)
 set(CMAKE_CXX_STANDARD 17)
 include(ExternalProject)
 
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 # Find includes in corresponding build directories
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 # Instruct CMake to run moc automatically when needed
@@ -18,21 +19,29 @@ INCLUDE_DIRECTORIES(include)
 LINK_DIRECTORIES(src)
 
 set(HEADER_FILES
+        include/FormData.h
         include/MainWindow.h
         include/SysrepoConnector.h
+        include/SysrepodStateMonitor.h
+        include/SysrepoViewer.h
         include/Util.h
-        include/SysrepoViewer.h include/FormData.h)
+        )
 
 set(SOURCE_FILES
+        src/FormData.cpp
         src/main.cpp
         src/MainWindow.cpp
         src/SysrepoConnector.cpp
-        src/Util.cpp src/SysrepoViewer.cpp src/FormData.cpp)
+        src/SysrepodStateMonitor.cpp
+        src/SysrepoViewer.cpp
+        src/Util.cpp
+        )
 
 add_executable(sysrepo-viewer
         ${HEADER_FILES}
         ${SOURCE_FILES})
 
 target_link_libraries(sysrepo-viewer
+        pthread
         Qt5::Widgets
         Sysrepo-cpp)
