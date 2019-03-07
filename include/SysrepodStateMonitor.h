@@ -4,22 +4,22 @@
 
 #include "FormData.h"
 
-class SysrepodStateMonitor {
-
+class SysrepodStateMonitor
+{
 public:
-  explicit SysrepodStateMonitor(FormDataPtr formDataPtr);
-  virtual ~SysrepodStateMonitor();
+    explicit SysrepodStateMonitor(FormDataPtr formDataPtr);
+    virtual ~SysrepodStateMonitor();
 
-  void run()
-  {
-    thread_ = std::thread(&SysrepodStateMonitor::monitorThread, this);
-  }
+    void run()
+    {
+        thread_ = std::thread(&SysrepodStateMonitor::monitor_thread, this);
+    }
 
-  void monitorThread();
+    void monitor_thread();
 
 private:
-  FormDataPtr formDataPtr_;
-  bool stopThread_ = false;
-  std::thread thread_;
+    FormDataPtr form_data_ptr_;
+    bool stop_thread_ = false;
+    std::thread thread_;
 
 };

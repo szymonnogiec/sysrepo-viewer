@@ -3,8 +3,7 @@
 
 #include "Util.h"
 
-namespace sr_viewer {
-
-
+namespace sr_viewer
+{
 
 }

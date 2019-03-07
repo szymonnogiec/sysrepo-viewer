@@ -6,21 +6,22 @@
 #include "FormData.h"
 #include "SysrepodStateMonitor.h"
 
-class SysrepoViewer : public QObject {
+class SysrepoViewer : public QObject
+{
 Q_OBJECT
 public:
-  SysrepoViewer();
-  virtual ~SysrepoViewer() = default;
+    SysrepoViewer();
+    virtual ~SysrepoViewer() = default;
 
-  void init();
-  const FormDataPtr &getFormDataPtr() const;
+    void init();
+    const FormDataPtr &get_form_data_ptr() const;
 
 public slots:
-  void onSendClicked();
+    void onSendClicked();
 
 private:
-  SysrepoConnector sysrepoConnector_;
-  FormDataPtr formDataPtr_;
-  std::shared_ptr<SysrepodStateMonitor> sysrepodStateMonitor_;
+    SysrepoConnector sysrepo_connector_;
+    FormDataPtr form_data_ptr_;
+    std::shared_ptr<SysrepodStateMonitor> sysrepod_state_monitor_;
 
 };

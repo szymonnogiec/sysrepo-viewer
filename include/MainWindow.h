@@ -4,24 +4,26 @@
 
 #include "SysrepoViewer.h"
 
-namespace Ui {
+namespace Ui
+{
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow {
+class MainWindow : public QMainWindow
+{
 Q_OBJECT
 public:
-  MainWindow();
-  virtual ~MainWindow() {}
+    MainWindow();
+    virtual ~MainWindow() {}
 
 private slots:
-  void onXpathChanged(const QString &text);
-  void onSysrepodStateChanged(bool state);
+    void onXpathChanged(const QString &text);
+    void onSysrepodStateChanged(bool state);
 
 private:
-  void setupSignals();
+    void setup_signals();
 
-  Ui::MainWindow *ui_;
-  FormDataPtr formDataPtr_;
-  SysrepoViewer sysrepoViewer_;
+    Ui::MainWindow *ui_;
+    FormDataPtr form_data_ptr_;
+    SysrepoViewer sysrepo_viewer_;
 };

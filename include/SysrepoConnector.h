@@ -2,10 +2,10 @@
 
 #include <sysrepo-cpp/Session.hpp>
 
-class SysrepoConnector {
+class SysrepoConnector
+{
 public:
     SysrepoConnector();
-
     virtual ~SysrepoConnector() = default;
 
     sysrepo::S_Session create_session();

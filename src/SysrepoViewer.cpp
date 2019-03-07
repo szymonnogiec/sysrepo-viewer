@@ -3,29 +3,33 @@
 
 #include "SysrepoViewer.h"
 
-void SysrepoViewer::onSendClicked() {
-  auto sess = sysrepoConnector_.create_session();
-  auto val = sess->get_item(formDataPtr_->xpath_.c_str());
-  try {
-    std::string val_string = val->val_to_string();
-    std::cout << "Got val for xpath: " << val->xpath() << " : " <<
-              val_string << std::endl;
+void SysrepoViewer::onSendClicked()
+{
+    auto sess = sysrepo_connector_.create_session();
+    auto val = sess->get_item(form_data_ptr_->xpath_.c_str());
+    try {
+        std::string val_string = val->val_to_string();
+        std::cout << "Got val for xpath: " << val->xpath() << " : " <<
+                  val_string << std::endl;
 
-  } catch (const sysrepo::sysrepo_exception &e) {
-    std::cerr << e.what() << std::endl;
-  }
+    } catch (const sysrepo::sysrepo_exception &e) {
+        std::cerr << e.what() << std::endl;
+    }
 
 }
 
-const FormDataPtr &SysrepoViewer::getFormDataPtr() const {
-  return formDataPtr_;
+const FormDataPtr &SysrepoViewer::get_form_data_ptr() const
+{
+    return form_data_ptr_;
 }
 
 SysrepoViewer::SysrepoViewer() :
-    formDataPtr_(new FormData),
-    sysrepodStateMonitor_(std::make_shared<SysrepodStateMonitor>(formDataPtr_)) {
+    form_data_ptr_(new FormData),
+    sysrepod_state_monitor_(std::make_shared<SysrepodStateMonitor>(form_data_ptr_))
+{
 }
 
-void SysrepoViewer::init() {
-  sysrepodStateMonitor_->run();
+void SysrepoViewer::init()
+{
+    sysrepod_state_monitor_->run();
 }

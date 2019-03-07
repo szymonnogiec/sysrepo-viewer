@@ -4,12 +4,14 @@
 
 #include "FormData.h"
 
-namespace sr_viewer {
+namespace sr_viewer
+{
 
-class Util {
+class Util
+{
 public:
-  Util() = default;
-  virtual ~Util() = default;
+    Util() = default;
+    virtual ~Util() = default;
 
 };
 }
