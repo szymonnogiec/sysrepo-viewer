@@ -2,9 +2,9 @@
 
 #include <QObject>
 
-#include "SysrepoConnector.h"
+#include "ModulesLister.h"
 #include "FormData.h"
-#include "SysrepodStateMonitor.h"
+#include "DaemonStateMonitor.h"
 
 class SysrepoViewer : public QObject
 {
@@ -20,8 +20,9 @@ public slots:
     void onSendClicked();
 
 private:
-    SysrepoConnector sysrepo_connector_;
+    sysrepo::Connector sysrepo_connector_;
+    sysrepo::ModuleLister sysrepo_modules_lister_;
     FormDataPtr form_data_ptr_;
-    std::shared_ptr<SysrepodStateMonitor> sysrepod_state_monitor_;
+    std::shared_ptr<sysrepo::DaemonStateMonitor> sysrepod_state_monitor_;
 
 };

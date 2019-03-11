@@ -19,20 +19,22 @@ INCLUDE_DIRECTORIES(include)
 LINK_DIRECTORIES(src)
 
 set(HEADER_FILES
+        include/Connector.h
+        include/DaemonStateMonitor.h
         include/FormData.h
         include/MainWindow.h
-        include/SysrepoConnector.h
-        include/SysrepodStateMonitor.h
+        include/ModulesLister.h
         include/SysrepoViewer.h
         include/Util.h
         )
 
 set(SOURCE_FILES
+        src/Connector.cpp
+        src/DaemonStateMonitor.cpp
         src/FormData.cpp
         src/main.cpp
         src/MainWindow.cpp
-        src/SysrepoConnector.cpp
-        src/SysrepodStateMonitor.cpp
+        src/ModulesLister.cpp
         src/SysrepoViewer.cpp
         src/Util.cpp
         )

@@ -25,7 +25,7 @@ const FormDataPtr &SysrepoViewer::get_form_data_ptr() const
 
 SysrepoViewer::SysrepoViewer() :
     form_data_ptr_(new FormData),
-    sysrepod_state_monitor_(std::make_shared<SysrepodStateMonitor>(form_data_ptr_))
+    sysrepod_state_monitor_(std::make_shared<sysrepo::DaemonStateMonitor>(form_data_ptr_))
 {
 }
 

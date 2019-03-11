@@ -1,20 +1,23 @@
-#include "SysrepodStateMonitor.h"
+#include "DaemonStateMonitor.h"
 #include <cstdlib>
 #include <iostream>
 
-SysrepodStateMonitor::SysrepodStateMonitor(FormDataPtr formDataPtr) :
+namespace sysrepo
+{
+
+DaemonStateMonitor::DaemonStateMonitor(FormDataPtr formDataPtr) :
     form_data_ptr_(formDataPtr)
 {
 
 }
 
-SysrepodStateMonitor::~SysrepodStateMonitor()
+DaemonStateMonitor::~DaemonStateMonitor()
 {
     stop_thread_ = true;
     if (thread_.joinable()) thread_.join();
 }
 
-void SysrepodStateMonitor::monitor_thread()
+void DaemonStateMonitor::monitor_thread()
 {
 
     while (!stop_thread_) {
@@ -24,4 +27,6 @@ void SysrepodStateMonitor::monitor_thread()
             form_data_ptr_->set_is_syrepod_running(isRunning);
         std::this_thread::sleep_for(std::chrono::seconds(1));
     }
+}
+
 }

@@ -2,15 +2,19 @@
 
 #include <sysrepo-cpp/Session.hpp>
 
-class SysrepoConnector
+namespace sysrepo
+{
+class Connector
 {
 public:
-    SysrepoConnector();
-    virtual ~SysrepoConnector() = default;
+    Connector();
+    virtual ~Connector() = default;
 
     sysrepo::S_Session create_session();
 
-private:
+protected:
     sysrepo::S_Connection connection_;
+    sysrepo::S_Session session_;
     sr_datastore_t datastore_;
 };
+}
