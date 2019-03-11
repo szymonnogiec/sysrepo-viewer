@@ -8,6 +8,9 @@
 class FormData;
 typedef std::shared_ptr<FormData> FormDataPtr;
 
+/**
+ * Class reposible for sharing data between backend an
+ */
 class FormData : public QObject
 {
 Q_OBJECT
@@ -20,6 +23,10 @@ public:
     void set_is_syrepod_running(bool is_sysrepod_running);
 
 signals:
+    /**
+     * Signal emitted when sysrepo daemon changes state (from running to down or from down to up)
+     * @param state New state of sysrepo daemon
+     */
     void sysrepodStateChanged(bool state);
 
 protected:

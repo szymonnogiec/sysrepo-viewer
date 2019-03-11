@@ -4,6 +4,10 @@
 
 #include "FormData.h"
 
+/**
+ * Class responsible for monitoring state of sysrepo engine
+ * Runs in own thread
+ */
 class SysrepodStateMonitor
 {
 public:

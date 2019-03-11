@@ -33,5 +33,6 @@ void MainWindow::onSysrepodStateChanged(bool state)
 {
     std::cout << "Changing sysrepod state to " << state << std::endl;
     ui_->l_sysrepod_state_->setText(state ? "Running" : "Not running");
+    ui_->pb_connect_->setEnabled(state);
 }
 
