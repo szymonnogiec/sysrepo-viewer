@@ -10,6 +10,7 @@ public:
     Connector();
     virtual ~Connector() = default;
 
+    void init_connection();
     sysrepo::S_Session create_session();
 
 protected:
