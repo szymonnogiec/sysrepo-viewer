@@ -4,12 +4,13 @@
 #include <mutex>
 
 #include <QObject>
+#include <QStringList>
 
 class FormData;
 typedef std::shared_ptr<FormData> FormDataPtr;
 
 /**
- * Class reposible for sharing data between backend an
+ * Class responsible for sharing data between backend an
  */
 class FormData : public QObject
 {
@@ -21,6 +22,7 @@ public:
 
     bool is_sysrepod_running();
     void set_is_syrepod_running(bool is_sysrepod_running);
+    void set_installed_modules_model(const QStringList &installed_modules);
 
 signals:
     /**
@@ -29,8 +31,10 @@ signals:
      */
     void sysrepodStateChanged(bool state);
 
+    void installed_modules_ready(const QStringList& modules_list);
 protected:
     bool is_sysrepod_running_ = false;
 
+    QStringList modules_list_;
     std::mutex mutex_;
 };

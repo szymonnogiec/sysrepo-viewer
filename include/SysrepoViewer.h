@@ -18,10 +18,20 @@ public:
 
 public slots:
     void onSendClicked();
+    /**
+     * Slot called when sysrepod is detected to be/stop running
+     */
+    void onSysrepodStateChanged(bool running);
 
 private:
+    /**
+     * Connect signals into slots
+     */
+    void setup_signals();
+
+    std::vector<std::shared_ptr<sysrepo::Connector>> connectors_;
     sysrepo::Connector sysrepo_connector_;
-    sysrepo::ModuleLister sysrepo_modules_lister_;
+    sysrepo::ModuleLister modules_lister_;
     FormDataPtr form_data_ptr_;
     std::shared_ptr<sysrepo::DaemonStateMonitor> sysrepod_state_monitor_;
 

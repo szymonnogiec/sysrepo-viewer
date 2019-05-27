@@ -7,14 +7,26 @@ namespace sysrepo
 {
 
 Connector::Connector() :
-    connection_(new sysrepo::Connection("sysrepo-viewer"))
+    datastore_(SR_DS_RUNNING)
 {
-
+    init_connection();
 }
 
-sysrepo::S_Session Connector::create_session()
+sysrepo::S_Session Connector::get_session()
 {
-    session_ = std::make_shared<sysrepo::Session>(connection_, datastore_);
     return session_;
 }
+
+void Connector::init_connection()
+{
+    connection_ = std::make_shared<sysrepo::Connection>("sysrepo-viewer");
+    session_ = std::make_shared<sysrepo::Session>(connection_, datastore_);
+}
+
+void Connector::reconnect()
+{
+    std::cout << "Reconnect" << std::endl;
+    init_connection();
+}
+
 }

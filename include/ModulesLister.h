@@ -1,5 +1,8 @@
 #pragma once
 
+#include <QList>
+#include <QString>
+
 #include "Connector.h"
 
 namespace sysrepo
@@ -14,9 +17,11 @@ public:
     ModuleLister();
     virtual ~ModuleLister() = default;
 
-    void read_installed_modules();
-private:
-    std::vector<std::string> modules_;
+    const QStringList &get_modules();
 
+private:
+    void read_installed_modules();
+
+    QStringList modules_;
 };
 }

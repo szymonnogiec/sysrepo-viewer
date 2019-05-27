@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QMainWindow>
+#include <QStringListModel>
 
 #include "SysrepoViewer.h"
 
@@ -31,10 +32,16 @@ private slots:
      */
     void onSysrepodStateChanged(bool state);
 
+    /**
+     * Slot called when installed modules has been read
+     */
+    void onInstalledModulesReady(const QStringList &modules_list);
+
 private:
     void setup_signals();
 
     Ui::MainWindow *ui_;
     FormDataPtr form_data_ptr_;
     SysrepoViewer sysrepo_viewer_;
+    QStringListModel installed_modules_model_;
 };
