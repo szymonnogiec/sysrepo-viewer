@@ -7,15 +7,15 @@ void SysrepoViewer::onSendClicked()
 {
     auto sess = sysrepo_connector_.get_session();
     auto val = sess->get_item(form_data_ptr_->xpath_.c_str());
+
     try {
+        auto val = sess->get_item(form_data_ptr_->xpath_.c_str());
         std::string val_string = val->val_to_string();
         std::cout << "Got val for xpath: " << val->xpath() << " : " <<
                   val_string << std::endl;
-
     } catch (const sysrepo::sysrepo_exception &e) {
         std::cerr << e.what() << std::endl;
     }
-
 }
 
 const FormDataPtr &SysrepoViewer::get_form_data_ptr() const

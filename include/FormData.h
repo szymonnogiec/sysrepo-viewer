@@ -10,7 +10,7 @@ class FormData;
 typedef std::shared_ptr<FormData> FormDataPtr;
 
 /**
- * Class responsible for sharing data between backend an
+ * Class responsible for sharing data between backend and ui
  */
 class FormData : public QObject
 {
