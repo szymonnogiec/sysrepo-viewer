@@ -5,14 +5,16 @@
     - ~~xpath string~~
     - datastore type
     - ~~information from sysrepo~~
+    - represent modules in form of tree
+    - add abilitiy to select leaf/level and send get request for it
 
 ## BACK
 1. ~~Add build step for sysrepo client library (and link it) - Sysrepo-cpp~~
 2. ~~Use swig generated cpp wrappings~~
 3. Validators
     3.1 ~~Verify that sysrepod is up and running~~
-    3.2 Get and list sysrepo installed modules
+    3.2 ~~Get and list sysrepo installed modules~~
 
 ## OTHER
-1. Link gtest and gmock libs
+1. ~~Link gtest and gmock libs~~
 2. Add spdlog headers to project and wrap it around some kind of logger class caller

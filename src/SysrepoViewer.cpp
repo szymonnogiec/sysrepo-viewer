@@ -6,7 +6,6 @@
 void SysrepoViewer::onSendClicked()
 {
     auto sess = sysrepo_connector_.get_session();
-    auto val = sess->get_item(form_data_ptr_->xpath_.c_str());
 
     try {
         auto val = sess->get_item(form_data_ptr_->xpath_.c_str());
@@ -24,7 +23,7 @@ const FormDataPtr &SysrepoViewer::get_form_data_ptr() const
 }
 
 SysrepoViewer::SysrepoViewer() :
-    form_data_ptr_(new FormData),
+    form_data_ptr_(std::make_shared<FormData>()),
     sysrepod_state_monitor_(std::make_shared<sysrepo::DaemonStateMonitor>(form_data_ptr_))
 {
     connectors_.emplace_back(std::make_shared<sysrepo::Connector>(sysrepo_connector_));

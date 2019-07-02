@@ -15,8 +15,11 @@ set(CMAKE_AUTOUIC_SEARCH_PATHS ${PROJECT_SOURCE_DIR}/ui)
 # Qt
 find_package(Qt5Widgets CONFIG REQUIRED)
 
-INCLUDE_DIRECTORIES(include)
-LINK_DIRECTORIES(src)
+include_directories(include)
+link_directories(src)
+
+enable_testing()
+add_subdirectory(test)
 
 set(HEADER_FILES
         include/Connector.h
